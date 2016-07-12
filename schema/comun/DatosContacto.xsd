@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+	xmlns="datoscontacto.tecmaral.es" 
+	targetNamespace="datoscontacto.tecmaral.es" 
+	elementFormDefault="qualified">
+
+	<xs:complexType name="DatosContacto">
+		<xs:annotation>
+			<xs:documentation>Datos de contacto del usuariol registrados.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<!-- ========================== INFORMACION DE USUARIO ===================================== -->
+			<xs:element name="nombre" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Nombre del cliente. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="apellido1" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>apellido1 del cliente. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="apellido2" type="xs:string" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>apellido2 del cliente. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			
+			<xs:element name="DatosAdicionalesContacto" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Datos adicionaeles de contacto</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Sexo" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Sexo del cliente. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="FechaNacimiento" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>FechaNacimiento del cliente. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Nacionalidad" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Campo . Nacionalidad del cliente. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Profesion" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Campo . Profesion del cliente. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						
+						<xs:element name="TipoVia" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Campo . Predefinidos. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="NombreVia" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Campo . Nombre de la via </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="NumeroVia" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Campo . Numero de la via. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Poblacion" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Campo . Poblacion</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Provincia" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Campo . Provincia. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CodPostal" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Campo . Codigo Postal. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						
+						<xs:element name="Pais" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Campo . Pais de contacto</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					
+						<xs:element name="Escalera" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Campo .  </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Bloque" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Campo . </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Portal" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Campo .  </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Piso" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Campo . </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Puerta" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Campo .</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+							<xs:element name="Telefono" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Telefono de contacto. </xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Email" type="xs:string" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>email de contacto</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<!-- ========================FIN DATOS DE CONTACTO ===================================== -->
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

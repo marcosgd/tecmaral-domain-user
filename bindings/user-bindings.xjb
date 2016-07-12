@@ -1,0 +1,27 @@
+<jaxb:bindings
+    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+    jaxb:extensionBindingPrefixes="xjc"
+    jaxb:version="2.1">
+
+    <jaxb:globalBindings localScoping="toplevel">
+    	<jaxb:serializable uid="1" />
+   </jaxb:globalBindings>
+
+  	<jaxb:bindings schemaLocation="../schema/User.xsd" node="/xsd:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="com.tecmaral.domain.user"/>
+        </jaxb:schemaBindings>
+     </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="../schema/comun/DatosContacto.xsd" node="/xsd:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="com.tecmaral.domain.user.comun.datoscontacto"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+
+
+  
+
+</jaxb:bindings>

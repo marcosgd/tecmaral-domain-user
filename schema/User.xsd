@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" xmlns="user.tecmaral.es" xmlns:datoscontacto="datoscontacto.tecmaral.es" targetNamespace="user.tecmaral.es" elementFormDefault="qualified" attributeFormDefault="unqualified" jaxb:extensionBindingPrefixes="xjc" jaxb:version="2.1">
+	<xs:import namespace="datoscontacto.tecmaral.es" schemaLocation="./comun/DatosContacto.xsd"/>
+	<!-- In practice, use elementFormDefault="qualified" to be able to declare elements in nested blocks, 
+	     otherwise you'll have to declare all elements on the top level and refer to them in the schema in nested elements using the ref attribute,
+	     resulting in a much less compact schema. 
+	 -->
+	    
+	<!-- Since Usuario element had an anonymous complex type the Usuario class has an @XmlRootElement annotation.
+	 Since JAXB classes map to complex types, it is possible for a class to correspond to multiple root elements.
+	 In this case @XmlRootElement can not be used and people start
+	 --> 
+	<xs:element name="Usuario">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="DatosIdentificacion" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation> Identificador Cliente y Tipo de indentificador</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<!-- ========================== IDENTIFICADORES VF ===================================== -->
+						<xs:element name="TipoIdentific" type="xs:string" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Tipo de identificador</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="DatosContacto" type="datoscontacto:DatosContacto" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Datos Contacto</xs:documentation>
+					<xs:appinfo>
+					 	 Datos contacto
+					 </xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+			<xs:element  ref="DatosAdicionales"/>
+		</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="datosAdicionalesType">
+						<xs:sequence>
+							<xs:element name="FechaAlta" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>// Documentacion S</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="Idioma" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Idioma</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="FechaUltimoAcceso" type="xs:string" minOccurs="0">
+								<xs:annotation>
+									<xs:documentation>Fecha de ultimo logado</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+	</xs:complexType>
+	
+	<xs:element name="DatosAdicionales" type="datosAdicionalesType"/>
+	
+</xs:schema>

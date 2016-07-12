@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="tecmaral-domain-user" basedir="." default="generate-java">
+	
+	<loadproperties srcFile="build.properties"/>
+	
+	<property name="src" value="${basedir}/src/main/java"/>
+	<property name="schema" value="${basedir}/schema"/>
+	<property name="bindings" value="${basedir}/bindings"/>
+	
+	<property name="jarName" value="tecmaral-domain-user-${app.version}.jar" />
+	<property name="pluginJarName" value="jaxb-plugins.jar" />
+	<property name="classes" value="${basedir}/build/classes/" />
+	<property name="dist" value="${basedir}/dist" />
+	
+	<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
+	  <classpath>
+	    <fileset dir="lib" includes="*.jar" />
+	  	<fileset dir="dist" includes="jaxb-plugins.jar" />
+	  </classpath>
+	</taskdef>
+
+	<target name="generate-java">
+		
+		<xjc destdir="${src}">
+			<schema dir="${schema}" includes="User.xsd"/>
+		  	<binding dir="${bindings}" includes="user-bindings.xjb"/>
+		  	<arg value="-npa" />
+			<arg value="-extension" />
+			<arg value="-verbose" />
+			
+		</xjc>
+		
+		
+		
+	</target>
+
+	<target name="Create jar" description="Create jar">
+
+		<delete file="${dist}/${jarName}" />
+
+		<jar jarfile="${dist}/${jarName}">
+			<fileset dir="${classes}">
+				<include name="**/*" />
+				<exclude name="**/*svn*/*"/>
+				<exclude name="**/*svn*"/>
+				<exclude name="**/*svn*/**/*"/>
+			</fileset>
+			<manifest>
+				<attribute name="Product-Name" value="${app.name}"/>
+				<attribute name="Implementation-Version" value="${app.version}"/>		
+				<attribute name="Specification-Version" value="${app.version}"/>	
+			</manifest>				
+		</jar>
+
+	</target>
+
+	
+	
+</project>
